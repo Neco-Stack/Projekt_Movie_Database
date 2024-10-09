@@ -1,14 +1,10 @@
 import { movies } from "./movies";
-console.log(movies);
 const yearUpBtn = document.querySelector("#yearUp") as HTMLButtonElement;
 const yearDownBtn = document.querySelector("#yearDown") as HTMLButtonElement; 
 const bestRateBtn = document.querySelector("#bestRate") as HTMLButtonElement;
 const searchBtn = document.querySelector("#searchBtn") as HTMLButtonElement;
-console.log(searchBtn);
 const movieCardElement = document.querySelector("#movieCard") as HTMLElement;
-console.log(movieCardElement);
 const searchField = document.querySelector("#searchField") as HTMLInputElement;
-console.log(searchField);
 
 const displayMovies = (moviesDisplayed: any[]) => {
     movieCardElement.innerHTML= " ";
@@ -36,10 +32,6 @@ yearUpBtn.addEventListener("click", () => {
     const sortedMoviesYearUp = [...movies].sort((a, b) => {
         return parseInt(a[1]) - parseInt(b[1])
     });
-    const outputMovies = sortedMoviesYearUp.map((movie: [string, string, string, string, string[], string]): string => {
-        return `title: ${movie[0]}, jahr: ${movie[1]}, regisseur: ${movie[2]}, dauer: ${movie[3]}, genre: ${movie[4]}, bewertung: ${movie[5]}`;
-    });
-    console.log(outputMovies);
     displayMovies(sortedMoviesYearUp)
 });
 
@@ -48,10 +40,6 @@ yearDownBtn.addEventListener("click", () => {
     const sortedMoviesYearDown = [...movies].sort((a, b) => {
         return parseInt(b[1]) - parseInt(a[1])
     });
-    const outputMovies = sortedMoviesYearDown.map((movie: [string, string, string, string, string[], string]): string => {
-        return `title: ${movie[0]}, jahr: ${movie[1]}, regisseur: ${movie[2]}, dauer: ${movie[3]}, genre: ${movie[4]}, bewertung: ${movie[5]}`;
-    });
-    console.log(outputMovies);
     displayMovies(sortedMoviesYearDown)
 });
 
@@ -61,10 +49,6 @@ bestRateBtn.addEventListener("click", () => {
         // sollen wir FLOAT nicht benutzen?
         return parseFloat(b[5]) - parseFloat(a[5])
     });
-    const outputMovies = sortedMoviesBestRate.map((movie: [string, string, string, string, string[], string]): string => {
-        return `title: ${movie[0]}, jahr: ${movie[1]}, regisseur: ${movie[2]}, dauer: ${movie[3]}, genre: ${movie[4]}, bewertung: ${movie[5]}`;
-    });
-    console.log(outputMovies);
     displayMovies(sortedMoviesBestRate)
 });
 
@@ -81,5 +65,4 @@ searchBtn.addEventListener("click", () => {
             displayMovies(searchResults)
         }
     }
-    
 })
