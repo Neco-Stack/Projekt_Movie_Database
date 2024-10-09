@@ -22,7 +22,6 @@ const displayMovies = (moviesDisplayed: any[]) => {
     })
 }
 const sortedMoviesBestRate = [...movies].sort((a, b) => {
-    // sollen wir FLOAT nicht benutzen?
     return Number(b[5]) - Number(a[5])
 });
 displayMovies(sortedMoviesBestRate);
