@@ -23,7 +23,7 @@ const displayMovies = (moviesDisplayed: any[]) => {
 }
 const sortedMoviesBestRate = [...movies].sort((a, b) => {
     // sollen wir FLOAT nicht benutzen?
-    return parseFloat(b[5]) - parseFloat(a[5])
+    return Number(b[5]) - Number(a[5])
 });
 displayMovies(sortedMoviesBestRate);
 
@@ -46,8 +46,7 @@ yearDownBtn.addEventListener("click", () => {
 bestRateBtn.addEventListener("click", () => {
     console.log("der User hat bestRateBtn geklickt");
     const sortedMoviesBestRate = [...movies].sort((a, b) => {
-        // sollen wir FLOAT nicht benutzen?
-        return parseFloat(b[5]) - parseFloat(a[5])
+        return Number(b[5]) - Number(a[5])
     });
     displayMovies(sortedMoviesBestRate)
 });
